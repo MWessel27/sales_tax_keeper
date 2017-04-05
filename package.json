@@ -115,9 +115,7 @@
     "webpack-dev-server": "2.3.0",
     "webpack-dll-bundles-plugin": "^1.0.0-beta.5",
     "webpack-merge": "~2.6.1",
-    "zone.js": "0.7.6"
-  },
-  "devDependencies": {
+    "zone.js": "0.7.6",
     "@types/jasmine": "^2.2.34",
     "@types/node": "^7.0.0",
     "@types/selenium-webdriver": "~2.53.39",
