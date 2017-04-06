@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { AngularFireModule } from 'angularfire2';
+import { firebaseConfig } from './environments/firebase.config';
 import {
   NgModule,
   ApplicationRef
@@ -54,6 +56,7 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
