@@ -8,7 +8,7 @@
         <div class="col-lg-12 text-center v-center">
           
           <h1>Record Your Sales Tax!</h1>
-          <p class="lead">Saved sales tax amount: {{ appState.state.value }}</p>
+          <p class="lead" *ngIf="sentData">Saved sales tax amount: ${{ appState.state.value }}</p>
           
           <br>
           

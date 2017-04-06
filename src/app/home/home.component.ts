@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 
 import { AppState } from '../app.service';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Component({
   // The selector is what angular internally uses
@@ -22,19 +23,27 @@ import { AppState } from '../app.service';
 export class HomeComponent implements OnInit {
   // Set our default values
   public localState = { value: '' };
+  public salesTax: FirebaseListObservable<any[]>;
+  public sentData: boolean;
   // TypeScript public modifiers
   constructor(
-    public appState: AppState
-  ) {}
+    public appState: AppState,
+    public af: AngularFire
+  ) {
+    this.sentData = false;
+  }
 
   public ngOnInit() {
     console.log('hello `Home` component');
     // this.title.getData().subscribe(data => this.data = data);
+    this.salesTax = this.af.database.list('/tax');
   }
 
   public submitState(value: string) {
     console.log('submitState', value);
     this.appState.set('value', value);
     this.localState.value = '';
+    this.salesTax.push(value);
+    this.sentData = true;
   }
 }
