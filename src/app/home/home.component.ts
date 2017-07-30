@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
   // Set our default values
   public localState = { value: '' };
   public salesTax: FirebaseListObservable<any[]>;
+  public allTax: FirebaseListObservable<any[]>;
   public sentData: boolean;
   // TypeScript public modifiers
   constructor(
@@ -45,5 +46,10 @@ export class HomeComponent implements OnInit {
     this.localState.value = '';
     this.salesTax.push(value);
     this.sentData = true;
+  }
+
+  public deleteTax(tax) {
+    console.log(tax);
+    this.af.database.list('/tax').remove(tax);
   }
 }
