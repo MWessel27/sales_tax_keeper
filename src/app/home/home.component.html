@@ -44,15 +44,15 @@
                       <thead>
                         <tr>
                             <th>Actions</th>
-                            <th class="hidden-xs">#</th>
+                            <th>#</th>
                             <th>Tax Amount</th>
                         </tr> 
                       </thead>
                       <tbody>
                         <tr *ngFor="let tax of salesTax | async; let i = index;">
                                 <td align="center">
-                                  <a class="btn btn-danger hidden-xs" (click)="deleteTax(tax)">Delete</a>                            </td>
-                                <td class="hidden-xs-1">{{i+1}}</td>
+                                  <a class="btn btn-danger" (click)="deleteTax(tax)">Delete</a>                            </td>
+                                <td>{{i+1}}</td>
                                 <td>${{tax.$value}}</td>
                               </tr>
                             </tbody>
@@ -82,44 +82,16 @@
   
   	<hr>
   
-  	<div class="row">
-        <div class="col-md-4">
+  	<div class="row" align="center">
+        <div class="col-md-12">
           <div class="panel panel-default">
-            <div class="panel-heading"><h3>Hello.</h3></div>
-            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-            Aliquam in felis sit amet augue.
+            <div class="panel-heading"><h3>What is this?</h3></div>
+            <div class="panel-body">Recording your sales tax for taxes at the end of the year is always a terrible time.
+              Record Your Sales Tax is a way you can record all the sales tax you accrue
+              throughout the year. Pretty awesome right? FSU Student Mikal Wessel put this sweet utility together
+              for his own convenience.
             </div>
           </div>
-        </div>
-      	<div class="col-md-4">
-        	<div class="panel panel-default">
-            <div class="panel-heading"><h3>Hello.</h3></div>
-            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-            Aliquam in felis sit amet augue.
-            </div>
-          </div>
-        </div>
-      	<div class="col-md-4">
-        	<div class="panel panel-default">
-            <div class="panel-heading"><h3>Hello.</h3></div>
-            <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-            Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-            dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-            Aliquam in felis sit amet augue.
-            </div>
-          </div>
-        </div>
-    </div>
-  
-	<div class="row">
-        <div class="col-lg-12">
-        <br><br>
-          <p class="pull-right"><a href="http://www.bootply.com">Template from Bootply</a> &nbsp; ©Copyright 2013 ACME<sup>TM</sup> Brand.</p>
-        <br><br>
         </div>
     </div>
 </div>
