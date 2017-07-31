@@ -35,7 +35,7 @@
                   <div class="panel-heading">
                     <div class="row">
                       <div class="col">
-                        <h3 class="panel-title">Saved Sales Tax</h3>
+                        <h3 class="panel-title">Saved Sales Tax Total: ${{ totalTax }}</h3>
                       </div>
                     </div>
                   </div>
@@ -51,7 +51,7 @@
                       <tbody>
                         <tr *ngFor="let tax of salesTax | async; let i = index;">
                                 <td align="center">
-                                  <a class="btn btn-danger" (click)="deleteTax(tax)">Delete</a>                            </td>
+                                  <a class="btn btn-danger" (click)="deleteTax(tax)">Delete</a></td>
                                 <td>{{i+1}}</td>
                                 <td>${{tax.$value}}</td>
                               </tr>

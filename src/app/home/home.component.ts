@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
   public localState = { value: '' };
   public salesTax: FirebaseListObservable<any[]>;
   public allTax: FirebaseListObservable<any[]>;
+  public totalTax;
   public sentData: boolean;
   // TypeScript public modifiers
   constructor(
@@ -37,6 +38,7 @@ export class HomeComponent implements OnInit {
   public ngOnInit() {
     console.log('hello `Home` component');
     // this.title.getData().subscribe(data => this.data = data);
+    this.calculateTax();
     this.salesTax = this.af.database.list('/tax');
   }
 
@@ -46,10 +48,25 @@ export class HomeComponent implements OnInit {
     this.localState.value = '';
     this.salesTax.push(value);
     this.sentData = true;
+    this.calculateTax();
   }
 
   public deleteTax(tax) {
     console.log(tax);
     this.af.database.list('/tax').remove(tax);
+    this.calculateTax();
   }
+
+  public calculateTax() {
+    let total = 0.0;
+    this.af.database.list('/tax', { preserveSnapshot: true})
+    .subscribe((snapshots) => {
+        snapshots.forEach((snapshot) => {
+          total += parseFloat(snapshot.val());
+          this.totalTax = total;
+        });
+    });
+    console.log(this.totalTax);
+  }
+
 }
